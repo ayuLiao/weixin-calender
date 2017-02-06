@@ -405,4 +405,4 @@ viewyue(cur_year, cur_month) {
 
 微信公众号:懒写作
 
-![懒写作](http://obfs4iize.bkt.clouddn.com/qrcode_for_gh_b26d6658df74_258.jpg)
+![懒写作](http://obfs4iize.bkt.clouddn.com/%E6%87%92%E5%86%99%E4%BD%9C.jpg)
