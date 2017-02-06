@@ -1,0 +1,43 @@
+ <scroll-view style="height:{{scrollviewHeight}}px" bindscrolltolower="loadMore" scroll-y="true">
+
+  <!--顶部轮幕-->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" class="banners" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banner}}">
+      <swiper-item class="banner">
+
+        <!--<image src="{{item.image}}"  data-id="{{item.id}}" bindtap="bindViewTap" class="banner-image" width="100%" height="100%"/>
+          <text class="banner-title">{{item.title}}</text>-->
+        <image src="{{item.img}}" data-id="{{item.id}}" bindtap="bindViewTap" class="banner-image" width="100%" height="100%" />
+        <text class="banner-title">{{item.title}}</text>-->
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--顶部轮幕-->
+
+  <!--文章列表模板-->
+  <template name="itmes">
+    <navigator url="../../pages/detail/detail?id={{id}}" hover-class="navigator-hover">
+
+      <!--数据来自newsList，newsList中的key-value结构跟title、cTime一样-->
+      <view class="news-item">
+        <view class="news-item-left">
+          <view class="news-item-title">{{title}}</view>
+        </view>
+        <view class="news-item-right">
+          <image src="{{img}}" class="news-image" />
+        </view>
+      </view>
+    </navigator>
+  </template>
+  <view class="news-item-container">
+    <text class="sub-title">月经小知识</text>
+
+    <!--循环输出列表-->
+    <view  wx:for="{{newsList}}" >
+      <!--引用上面定义的模板，...item是默认写法-->
+      <template is="itmes" data="{{...item}}" />
+    </view>
+  </view>
+
+</scroll-view>

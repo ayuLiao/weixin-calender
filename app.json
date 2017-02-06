@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/picker/picker",
+    "pages/lists/lists",
+     "pages/detail/detail",
+    "pages/calendar/calendar"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FF5073",
+    "navigationBarTitleText": "ayuLiao",
+    "navigationBarTextStyle":"#fff",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#343",
+    "color": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "月经记录",
+        "iconPath": "image/1.png",
+        "selectedIconPath": "image/2.png"
+      },
+      {
+        "pagePath": "pages/lists/lists",
+        "text": "月经知识",
+        "iconPath": "image/3.png",
+        "selectedIconPath": "image/4.png"
+      },
+      {
+        "pagePath": "pages/picker/picker",
+        "text": "月经设置",
+        "iconPath": "image/2.png",
+        "selectedIconPath": "image/4.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+<canvas style="width:{{canvasewidth}}px; height:{{canvasewidth/2+5}}px;" canvas-id="ayuCanvas"></canvas>
+
+<!--月经日历-->
+<scroll-view scroll-y="true" class=" scroll_L flex box box-tb box-pack-center box-align-center" style="height: {{scrollViewHeight*2}}rpx">
+  <view class="calendar pink-color box box-tb">
+    <view class="top-handle fs28 box box-lr box-align-center box-pack-center">
+      <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+        <view class="prev-handle box box-lr box-align-center box-pack-center">《</view>
+      </view>
+      <view class="date-area box box-lr box-align-center box-pack-center">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+      <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+        <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
+      </view>
+    </view>
+    <view class="weeks box box-lr box-pack-center box-align-center">
+      <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+    </view>
+    <view class="days box box-lr box-wrap">
+
+      <!--当月空出的位置-->
+      <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+      </view>
+
+      <!--当月空出的位置-->
+
+      <!--月数-->
+      <view class="grid white-color box box-align-center box-pack-center" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}">
+
+        <!--<view class="day {{index >= 5 && index <= 13 ? 'border-radius pink-bg' : ''}} box box-align-center box-pack-center">{{item}}</view>-->
+
+        <!--<view class="day box box-align-center box-pack-center">{{item}}</view>-->
+
+        <!--<view class="day box box-align-center box-pack-center">{{item}}</view>-->
+        <view wx:for="{{yue}}" wx:for-item="y">
+          <view wx:if="{{item == y}}">
+            <view class="day box box-align-center box-pack-center border-radius pink-bg">{{item}}</view>
+          </view>
+        </view>
+        <view wx:for="{{weixian}}" wx:for-item="w">
+          <view wx:if="{{item == w}}">
+            <view class="day box box-align-center box-pack-center border-radius purple-bg">{{item}}</view>
+          </view>
+        </view>
+        <view wx:for="{{anquan}}" wx:for-item="a">
+          <view wx:if="{{item == a}}">
+            <view class="day box box-align-center box-pack-center border-radius green-bg">{{item}}</view>
+          </view>
+        </view>
+        <view wx:if="{{item == pailuanri}}">
+          <view class="day box box-align-center box-pack-center border-radius orange-bg">{{item}}</view>
+        </view>
+
+        <!--月数-->
+      </view>
+    </view>
+  </view>
+  <view class="explain ">
+    <view class="flex-wrp">
+      <view class="flex-wrp explain_wrp">
+        <view class="flex-item color_L color_yue border-radius"></view>
+        <text class="color_yue_text">月经期</text>
+      </view>
+      <view class="flex-wrp explain_wrp">
+        <view class="flex-item color_L color_anquan border-radius"></view>
+        <text class="color_anquan_text">安全期</text>
+      </view>
+      <view class="flex-wrp explain_wrp">
+        <view class="flex-item color_L color_wei border-radius"></view>
+        <text class="color_wei_text">危险期</text>
+      </view>
+      <view class="flex-wrp explain_wrp">
+        <view class="flex-item color_L color_pai border-radius"></view>
+        <text class="color_pai_text">排卵期</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!--月经日历-->
